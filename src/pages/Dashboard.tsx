@@ -6,17 +6,22 @@ import { useExpenses } from '../hooks/useExpenses';
 import { useUserStats } from '../hooks/useUserStats';
 import Layout from '../components/Layout';
 import { PlusCircle, Wallet, TrendingDown, Calendar, Award } from 'lucide-react';
+import NotificationPermissionPrompt from '../components/NotificationPermissionPrompt'; 
 
 const Dashboard: React.FC = () => {
   const { currentUser } = useAuth();
   const { budget, loading: budgetLoading } = useBudget(currentUser?.uid || '');
   const { expenses, loading: expensesLoading } = useExpenses(currentUser?.uid || '');
   const { stats, loading: statsLoading } = useUserStats(currentUser?.uid || '');
-  
+  const [permissionGranted, setPermissionGranted] = useState(Notification.permission === 'granted');
+
   const [remainingBudget, setRemainingBudget] = useState(0);
   const [todayExpenses, setTodayExpenses] = useState(0);
   const [monthExpenses, setMonthExpenses] = useState(0);
   
+   const handlePermissionGranted = () => {
+    setPermissionGranted(true);
+   }
   useEffect(() => {
     if (budget && expenses) {
       // Calculate remaining budget
@@ -76,6 +81,7 @@ const Dashboard: React.FC = () => {
   
   return (
     <Layout title="Dashboard">
+       {!permissionGranted && <NotificationPermissionPrompt onPermissionGranted={handlePermissionGranted} />}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Wallet Balance */}
         <div className="bg-gray-800 rounded-lg shadow-lg p-6">
@@ -249,3 +255,4 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+

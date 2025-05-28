@@ -59,7 +59,7 @@ export const useUserStats = (userId: string) => {
 
     const fetchUserStats = async () => {
       try {
-        const statsRef = doc(db, 'users', userId, 'userStats');
+        const statsRef = doc(db, 'users', userId, 'userStats', 'stats');
         const statsDoc = await getDoc(statsRef);
         
         if (statsDoc.exists()) {
