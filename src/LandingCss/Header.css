@@ -1,13 +1,16 @@
-/* === Header Styles === */
+
+
+/* Header Base */
 .header {
-  /* position: fixed; */
   top: 0;
   width: 100%;
-  background-color: #111; /* deep dark background */
+  background-color: #111;
   box-shadow: 0 4px 12px rgba(255, 147, 32, 0.3);
   z-index: 10000;
+  position: sticky;
 }
 
+/* Navbar layout */
 .nav {
   display: flex;
   align-items: center;
@@ -17,26 +20,40 @@
   margin: 0 auto;
 }
 
+/* Logo */
 .nav__logo {
   font-size: 1.8rem;
   font-weight: bold;
   color: #ff9320;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
 }
 
+/* Hamburger toggle (hidden by default) */
+.nav__toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.nav__toggle-icon {
+  color: white;
+}
+
+/* Main nav menu */
 .nav__menu {
   display: flex;
   gap: 2rem;
 }
 
-.nav__item {
+.nav__list {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
   list-style: none;
 }
 
 .nav__link {
-  /* display:  flex; */
   color: white;
   text-decoration: none;
   font-size: 1rem;
@@ -44,63 +61,41 @@
   transition: color 0.3s ease;
 }
 
+.nav__link:hover {
+  color: #ff9320;
+}
+
 .nav__link::after {
   content: '';
   position: absolute;
-  width: 0%;
+  width: 0;
   height: 2px;
   bottom: -4px;
   left: 0;
   background-color: #ff9320;
   transition: width 0.3s ease-in-out;
 }
-.nav__list{
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav__link:hover {
-  color: #ff9320;
-}
 
 .nav__link:hover::after {
   width: 100%;
 }
 
-/* Get Started Button */
-.get-started-btn {
-  background-color: #ff9320;
-  color: black;
-  padding: 0.5rem 1.2rem;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-}
-
-.get-started-btn:hover {
-  background-color: #ffa943;
-  transform: scale(1.05);
-}
-
-/* Mobile Styles */
-.nav__toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-}
-
+/* Responsive (Mobile) */
 @media (max-width: 768px) {
+  .nav__toggle {
+    display: block;
+  }
+
   .nav__menu {
     position: fixed;
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #ff9320e4;
+    background-color: #1b1b1b;
     flex-direction: column;
-    padding: 1.5rem 2rem;
     display: none;
+    gap: 1.5rem;
+    padding: 2rem;
     z-index: 9999;
   }
 
@@ -111,15 +106,5 @@
   .nav__list {
     flex-direction: column;
     gap: 1.2rem;
-  }
-
-  .nav__toggle {
-    display: block;
-  }
-
-  .get-started-btn {
-    background-color: white;
-    color: #111;
-    text-align: center;
   }
 }

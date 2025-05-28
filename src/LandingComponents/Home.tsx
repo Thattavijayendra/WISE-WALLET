@@ -48,7 +48,7 @@ const Home: React.FC = () => {
 
       <div className="home__button-wrapper">
         <Link to="/login" className="home__button">
-          Get Started – It’s Free
+          Start
         </Link>
       </div>
     </section>

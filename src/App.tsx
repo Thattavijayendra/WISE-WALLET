@@ -69,8 +69,11 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Routes>
-        //Landing page
-        <Route path="/" element={<LandingPage />} />
+        <Route
+  path="/"
+  element={currentUser ? <Navigate to="/dashboard" replace /> : <LandingPage />}
+/>
+
 
         {/* Public routes */}
         <Route path="/login" element={<Login />} />
