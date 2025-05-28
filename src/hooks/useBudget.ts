@@ -114,7 +114,8 @@ export const useBudget = (userId: string) => {
 
     const fetchBudget = async () => {
       try {
-        const budgetRef = doc(db, 'users', userId, 'budget');
+      const budgetRef = doc(db, 'users', userId, 'budget', 'main');
+
         const budgetDoc = await getDoc(budgetRef);
         
         if (budgetDoc.exists()) {
@@ -150,7 +151,8 @@ export const useBudget = (userId: string) => {
         dailyLimit
       };
 
-      const budgetRef = doc(db, 'users', userId, 'budget');
+      const budgetRef = doc(db, "users", userId, "budget", "main")
+
       await setDoc(budgetRef, newBudget);
       
       setBudget(newBudget);
