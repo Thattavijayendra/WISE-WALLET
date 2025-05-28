@@ -4,7 +4,6 @@ import { useExpenses } from '../hooks/useExpenses';
 import { useCategories } from '../hooks/useCategories';
 import Layout from '../components/Layout';
 import { PieChart, BarChart, ResponsiveContainer, Pie, Cell, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-
 const Stats: React.FC = () => {
   const { currentUser } = useAuth();
   const { expenses, loading: expensesLoading } = useExpenses(currentUser?.uid || '');
@@ -314,6 +313,13 @@ const Stats: React.FC = () => {
           )}
         </div>
       </div>
+
+
+
+
+
+
+
     </Layout>
   );
 };

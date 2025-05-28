@@ -37,7 +37,7 @@ const Login: React.FC = () => {
         </div>
         
         <h2 className="text-2xl font-bold text-center text-white mb-8">
-          Welcome to <span className="text-emerald-400">WISE WALLET</span>
+          Welcome to <span className="text-emerald-400">VIJAY's WALLET</span>
         </h2>
         
         {error && (

@@ -43,7 +43,7 @@ const Signup: React.FC = () => {
         </div>
         
         <h2 className="text-2xl font-bold text-center text-white mb-8">
-          Create your <span className="text-emerald-400">WISE WALLET</span> account
+          Create your <span className="text-emerald-400">VIJAY's WALLET</span> account
         </h2>
         
         {error && (

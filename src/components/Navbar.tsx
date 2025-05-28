@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Top Bar */}
       <div className="md:hidden bg-gray-800 p-4 flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-xl font-bold text-emerald-400">WISE WALLET</span>
+          <span className="text-xl font-bold text-emerald-400">VIJAY's WALLET</span>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
